@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>林俊杰</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "微软雅黑", Arial, sans-serif;
+        font-size: 14px;
+        color: #333333;
+        line-height: 1.8;
+        background-color: #f6f6f6;
+    }
+
+    a {
+        color: #333333;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #b8860b;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #333333 0%, #4d4d4d 100%);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 0 26px 0;
+        border-bottom: 3px solid #b8860b;
+    }
+
+    .header h1 {
+        font-size: 28px;
+        letter-spacing: 8px;
+        font-weight: bold;
+    }
+
+    .header h1 a {
+        color: #ffffff;
+    }
+
+    .header h1 a:hover {
+        color: #e8c377;
+        text-decoration: underline;
+    }
+
+    .header p {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #bbbbbb;
+        letter-spacing: 4px;
+    }
+
+    .hint {
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: 0;
+        color: #999999;
+        margin-left: 10px;
+    }
+
+    .header h1 .hint {
+        color: #c9a86a;
+    }
+
+    .nav {
+        background-color: #ffffff;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .nav a {
+        display: inline-block;
+        color: #555555;
+        padding: 11px 22px;
+        font-size: 14px;
+    }
+
+    .nav a:hover {
+        color: #b8860b;
+        border-bottom: 2px solid #b8860b;
+        padding-bottom: 9px;
+    }
+
+    .box {
+        width: 960px;
+        margin: 26px auto;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .footer {
+        background-color: #333333;
+        color: #aaaaaa;
+        text-align: center;
+        padding: 16px;
+        font-size: 12px;
+        margin-top: 26px;
+    }
+
+    .footer a {
+        color: #cccccc;
+        text-decoration: underline;
+    }
+
+    .footer a:hover {
+        color: #e8c377;
+    }
+
+    .section-title {
+        font-size: 17px;
+        color: #333333;
+        padding-left: 10px;
+        border-left: 4px solid #b8860b;
+        margin-bottom: 16px;
+    }
+
+    /* ---------- 首页卡片 ---------- */
+    .item {
+        position: relative;
+        float: left;
+        width: 466px;
+        margin: 0 24px 24px 0;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+
+    .item:nth-child(2n+1) {
+        margin-right: 0;
+    }
+
+    .item:hover {
+        border-color: #b8860b;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        transform: translateY(-3px);
+    }
+
+    .item img {
+        display: block;
+        width: 464px;
+        height: 348px;
+    }
+
+    .item .badge {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: #b8860b;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 3px 12px;
+        letter-spacing: 1px;
+    }
+
+    .item .info {
+        padding: 12px 16px 16px 16px;
+    }
+
+    .item .info h2 {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .item .info h2 a {
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .item .info h2 a:hover {
+        color: #b8860b;
+        border-bottom-color: #b8860b;
+    }
+
+    .item .info p {
+        color: #666666;
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .item .info p.meta {
+        color: #999999;
+        font-size: 12px;
+    }
+
+    .item .info a.more {
+        color: #b8860b;
+        font-size: 13px;
+    }
+
+    /* ---------- 子页 ---------- */
+    .artist {
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .artist img {
+        float: left;
+        width: 320px;
+        height: 240px;
+        margin-right: 22px;
+    }
+
+    .artist h2 {
+        font-size: 22px;
+        margin-bottom: 2px;
+    }
+
+    .artist h2 a {
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .artist h2 a:hover {
+        color: #b8860b;
+        border-bottom-color: #b8860b;
+    }
+
+    .artist .tag {
+        color: #b8860b;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .artist .fav {
+        display: inline-block;
+        background-color: #b8860b;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 2px 10px;
+        margin-bottom: 10px;
+    }
+
+    .artist p.desc {
+        color: #555555;
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin: 26px 0 10px 0;
+        padding-left: 10px;
+        border-left: 4px solid #b8860b;
+    }
+
+    h3 span.tip {
+        font-size: 12px;
+        color: #999999;
+        font-weight: normal;
+        margin-left: 8px;
+        border: none;
+    }
+
+    /* ---------- 视频 ---------- */
+    .video-wrap {
+        width: 720px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        padding: 8px;
+    }
+
+    .video-wrap video {
+        display: block;
+        width: 100%;
+        height: auto;
+        background-color: #000000;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+    }
+
+    th, td {
+        border: 1px solid #e5e5e5;
+        padding: 8px 12px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333333;
+    }
+
+    table tr:nth-child(even) td {
+        background-color: #fafafa;
+    }
+
+    table tr:hover td {
+        background-color: #fdf7e6;
+    }
+
+    audio {
+        width: 300px;
+        height: 30px;
+        vertical-align: middle;
+    }
+
+    /* ---------- 照片墙 ---------- */
+    .gallery {
+        overflow: hidden;
+    }
+
+    .gallery a {
+        display: block;
+        float: left;
+        box-sizing: border-box;
+        width: 310px;
+        margin: 0 15px 15px 0;
+        border: 1px solid #e5e5e5;
+        background-color: #ffffff;
+        transition: border-color 0.3s;
+    }
+
+    .gallery a:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .gallery a:hover {
+        border-color: #b8860b;
+    }
+
+    .gallery img {
+        display: block;
+        width: 100%;
+        height: 308px;
+    }
+
+    .credit {
+        font-size: 12px;
+        color: #999999;
+        margin-top: -4px;
+    }
+
+    .credit a {
+        color: #999999;
+        text-decoration: underline;
+    }
+
+    .credit a:hover {
+        color: #b8860b;
+    }
+
+    .gallery p {
+        font-size: 12px;
+        color: #888888;
+        text-align: center;
+        padding: 4px 0 6px 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1><a href="https://www.baidu.com/s?wd=%E6%9E%97%E4%BF%8A%E6%9D%B0" target="_blank" rel="noopener" title="在百度搜索「林俊杰」">林俊杰</a><span class="hint">点击搜索</span></h1>
+    <p>JJ LIN</p>
+</div>
+
+<div class="nav">
+    <a href="../index.html">首页</a>
+    <a href="sunyanzi.html">孙燕姿</a>
+    <a href="zhoujielun.html">周杰伦</a>
+    <a href="linjunjie.html">林俊杰</a>
+    <a href="mayday.html">五月天</a>
+</div>
+
+<div class="box">
+
+    <div class="artist">
+        <img src="../image/jj.jpg" alt="林俊杰">
+        <h2><a href="https://www.baidu.com/s?wd=%E6%9E%97%E4%BF%8A%E6%9D%B0" target="_blank" rel="noopener" title="在百度搜索「林俊杰」">林俊杰</a><span class="hint">点击搜索</span></h2>
+        <p class="tag">新加坡创作男歌手 · 音乐制作人</p>
+        <p class="desc">林俊杰，新加坡籍创作男歌手、音乐制作人，2003 年发行首张专辑《乐行者》出道。他自幼学习钢琴，古典功底扎实，作品以旋律流畅、和声细腻、编曲层次丰富见长。他的音域宽广，真假声转换干净利落，现场演唱稳定，被听众称为“行走的 CD”。除个人演唱外，他也为众多华语歌手担任作曲与制作，并多次获得金曲奖肯定，是 2000 年后华语流行乐坛最具分量的创作者之一。</p>
+    </div>
+
+    <h3>照片墙 <span class="tip">共 3 张，点图片看大图</span></h3>
+    <div class="gallery">
+        <a href="../image/jj_g1.jpg" target="_blank"><img src="../image/jj_g1.jpg" alt="KKBOX 风云榜演出"><p>KKBOX 风云榜演出</p></a>
+        <a href="../image/jj_g3.jpg" target="_blank"><img src="../image/jj_g3.jpg" alt="演唱会弹唱"><p>演唱会弹唱</p></a>
+        <a href="../image/jj_g5.jpg" target="_blank"><img src="../image/jj_g5.jpg" alt="《学不会》庆功记者会"><p>《学不会》庆功记者会</p></a>
+    </div>
+    <p class="credit">照片来源：<a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">维基共享资源</a>（CC 授权），仅用于课程作业展示</p>
+
+    <h3>在线试听 <span class="tip">共 8 首，30 秒官方试听片段</span></h3>
+    <table>
+        <tr><th>序号</th><th>歌名</th><th>时长</th><th>播放</th></tr>
+        <tr><td style="width:60px;">1</td><td style="width:220px;">《江南》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_jiangnan.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">2</td><td style="width:220px;">《一千年以后》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_yiqiannian.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">3</td><td style="width:220px;">《小酒窝》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_xiaojiuwo.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">4</td><td style="width:220px;">《修炼爱情》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_xiulian.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">5</td><td style="width:220px;">《不为谁而作的歌》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_buweishui.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">6</td><td style="width:220px;">《曹操》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_caocao.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">7</td><td style="width:220px;">《可惜没如果》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_kexi.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">8</td><td style="width:220px;">《醉赤壁》</td><td style="width:80px;">0:30</td><td><audio controls preload="none" src="../audio/jj_zuichibi.mp3"></audio></td></tr>
+    </table>
+
+    <h3>代表作</h3>
+    <table>
+        <tr><th style="width:70px;">序号</th><th>歌名</th><th style="width:120px;">发行年份</th></tr>
+        <tr><td>1</td><td>《江南》</td><td>2004 年</td></tr>
+        <tr><td>2</td><td>《一千年以后》</td><td>2006 年</td></tr>
+        <tr><td>3</td><td>《小酒窝》</td><td>2008 年</td></tr>
+        <tr><td>4</td><td>《修炼爱情》</td><td>2013 年</td></tr>
+        <tr><td>5</td><td>《不为谁而作的歌》</td><td>2015 年</td></tr>
+    </table>
+
+    <h3>经典专辑</h3>
+    <table>
+        <tr><th>专辑</th><th style="width:120px;">发行年份</th><th style="width:180px;">备注</th></tr>
+        <tr><td>《乐行者》</td><td>2003 年</td><td>首张专辑</td></tr>
+        <tr><td>《江南》</td><td>2004 年</td><td>成名之作</td></tr>
+        <tr><td>《曹操》</td><td>2006 年</td><td>中国风尝试</td></tr>
+        <tr><td>《因你而在》</td><td>2013 年</td><td>十周年专辑</td></tr>
+        <tr><td>《伟大的渺小》</td><td>2017 年</td><td>概念专辑</td></tr>
+    </table>
+
+    <p style="margin-top:22px;"><a href="../index.html">&lt;&lt; 返回首页</a></p>
+
+</div>
+
+<div class="footer">
+    网页课程作业 2026 &nbsp;|&nbsp; 照片来自本人收集，部分封面版权归原唱片公司所有
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿歌曲清单（audio 目录）
+
+一、孙燕姿（13 首完整歌曲，MP3 96kbps）
+来源：本地文件 C://Users//Wang//Music//孙燕姿ppt（wav/flac 无损格式转码）
+  tianheihei.mp3     天黑黑
+  yaobaidexingfu.mp3 我要的幸福
+  chaokuaigan.mp3    超快感
+  lvguang.mp3        绿光
+  kaishidongle.mp3   开始懂了
+  taowang.mp3        逃亡
+  the_moment.mp3     The Moment
+  shenqi.mp3         神奇
+  wobunanguo.mp3     我不难过
+  diyitian.mp3       第一天
+  yanleichengshi.mp3 眼泪成诗
+  wohuainiande.mp3   我怀念的
+  niguang.mp3        逆光
+
+二、周杰伦（8 首，30 秒试听片段）
+来源：Apple iTunes 公开试听接口（country=tw），仅用于课程作业演示
+  jay_qilixiang.mp3  七里香
+  jay_qingtian.mp3   晴天
+  jay_qinghuaci.mp3  青花瓷
+  jay_yequ.mp3       夜曲
+  jay_daoxiang.mp3   稻香
+  jay_jiandanai.mp3  简单爱
+  jay_gaobai.mp3     告白气球
+  jay_yiluxiangbei.mp3 一路向北
+
+三、林俊杰（8 首，30 秒试听片段）
+  jj_jiangnan.mp3    江南
+  jj_yiqiannian.mp3  一千年以后
+  jj_xiaojiuwo.mp3   小酒窝
+  jj_xiulian.mp3     修炼爱情
+  jj_buweishui.mp3   不为谁而作的歌
+  jj_caocao.mp3      曹操
+  jj_kexi.mp3        可惜没如果
+  jj_zuichibi.mp3    醉赤壁
+
+四、五月天（8 首，30 秒试听片段）
+  md_juejiang.mp3    倔强
+  md_zhizu.mp3       知足
+  md_wenrou.mp3      温柔
+  md_houlai.mp3      后来的我们
+  md_turan.mp3       突然好想你
+  md_lianai.mp3      恋爱ing
+  md_paidui.mp3      派对动物
+  md_buxiangni.mp3   我不愿让你一个人
+
+说明：周杰伦、林俊杰、五月天的歌曲版权属唱片公司，站内只嵌入官方公开的 30 秒试听片段；
+      如已购买正版音源，把完整 mp3 放入本目录并改用同名文件即可整首播放。
+
+五、旧版片段备份（audio/_old_clips/）
+  tianheihei.mp3     天黑黑（旧 30 秒片段）
+  kaishidongle.mp3   开始懂了（旧 30 秒片段）
+  wohuainiande.mp3   我怀念的（旧 30 秒片段）
+  niguang.mp3        逆光（旧 30 秒片段）
+  以上四段已被上一级的完整歌曲替代，页面不引用，仅作备份。

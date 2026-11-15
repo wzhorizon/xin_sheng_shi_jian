@@ -1,0 +1,23 @@
+未采用的照片（备份）
+
+网页每位歌手只展示 3 张照片，其余候选全部存放在这里，页面不引用，可直接删除，不影响显示。
+
+一、孙燕姿（6 张，专辑封面）
+  yanzi_g1.jpg   专辑《我要的幸福》（2000）
+  yanzi_g2.jpg   专辑《逆光》（2007）
+  yanzi_g3.jpg   专辑《风筝》（2001）
+  yanzi_g6.jpg   专辑《Start 自选集》（2002）
+  yanzi_g8.jpg   专辑《克卜勒》（2014）
+  yanzi_g9.jpg   户外造型照（未能确认所属专辑，未标注）
+
+二、周杰伦（3 张）
+  jay_g4.jpg  jay_g5.jpg  jay_g6.jpg
+
+三、林俊杰（3 张）
+  jj_g2.jpg   jj_g4.jpg   jj_g6.jpg
+
+四、五月天（3 张）
+  mayday_g3.jpg  mayday_g5.jpg  mayday_g6.jpg
+
+如需替换页面上的照片：把这里的文件复制到上一级 image\ 目录，再用原来的文件名（如 yanzi_g4.jpg）
+覆盖对应文件即可，网页会自动读取新图；同时记得修改生成脚本 gen_site.py 里的图片说明。

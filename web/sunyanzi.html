@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>孙燕姿</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "微软雅黑", Arial, sans-serif;
+        font-size: 14px;
+        color: #333333;
+        line-height: 1.8;
+        background-color: #f6f6f6;
+    }
+
+    a {
+        color: #333333;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #b8860b;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #333333 0%, #4d4d4d 100%);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 0 26px 0;
+        border-bottom: 3px solid #b8860b;
+    }
+
+    .header h1 {
+        font-size: 28px;
+        letter-spacing: 8px;
+        font-weight: bold;
+    }
+
+    .header h1 a {
+        color: #ffffff;
+    }
+
+    .header h1 a:hover {
+        color: #e8c377;
+        text-decoration: underline;
+    }
+
+    .header p {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #bbbbbb;
+        letter-spacing: 4px;
+    }
+
+    .hint {
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: 0;
+        color: #999999;
+        margin-left: 10px;
+    }
+
+    .header h1 .hint {
+        color: #c9a86a;
+    }
+
+    .nav {
+        background-color: #ffffff;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .nav a {
+        display: inline-block;
+        color: #555555;
+        padding: 11px 22px;
+        font-size: 14px;
+    }
+
+    .nav a:hover {
+        color: #b8860b;
+        border-bottom: 2px solid #b8860b;
+        padding-bottom: 9px;
+    }
+
+    .box {
+        width: 960px;
+        margin: 26px auto;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .footer {
+        background-color: #333333;
+        color: #aaaaaa;
+        text-align: center;
+        padding: 16px;
+        font-size: 12px;
+        margin-top: 26px;
+    }
+
+    .footer a {
+        color: #cccccc;
+        text-decoration: underline;
+    }
+
+    .footer a:hover {
+        color: #e8c377;
+    }
+
+    .section-title {
+        font-size: 17px;
+        color: #333333;
+        padding-left: 10px;
+        border-left: 4px solid #b8860b;
+        margin-bottom: 16px;
+    }
+
+    /* ---------- 首页卡片 ---------- */
+    .item {
+        position: relative;
+        float: left;
+        width: 466px;
+        margin: 0 24px 24px 0;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+
+    .item:nth-child(2n+1) {
+        margin-right: 0;
+    }
+
+    .item:hover {
+        border-color: #b8860b;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        transform: translateY(-3px);
+    }
+
+    .item img {
+        display: block;
+        width: 464px;
+        height: 348px;
+    }
+
+    .item .badge {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: #b8860b;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 3px 12px;
+        letter-spacing: 1px;
+    }
+
+    .item .info {
+        padding: 12px 16px 16px 16px;
+    }
+
+    .item .info h2 {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .item .info h2 a {
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .item .info h2 a:hover {
+        color: #b8860b;
+        border-bottom-color: #b8860b;
+    }
+
+    .item .info p {
+        color: #666666;
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .item .info p.meta {
+        color: #999999;
+        font-size: 12px;
+    }
+
+    .item .info a.more {
+        color: #b8860b;
+        font-size: 13px;
+    }
+
+    /* ---------- 子页 ---------- */
+    .artist {
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .artist img {
+        float: left;
+        width: 320px;
+        height: 240px;
+        margin-right: 22px;
+    }
+
+    .artist h2 {
+        font-size: 22px;
+        margin-bottom: 2px;
+    }
+
+    .artist h2 a {
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .artist h2 a:hover {
+        color: #b8860b;
+        border-bottom-color: #b8860b;
+    }
+
+    .artist .tag {
+        color: #b8860b;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .artist .fav {
+        display: inline-block;
+        background-color: #b8860b;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 2px 10px;
+        margin-bottom: 10px;
+    }
+
+    .artist p.desc {
+        color: #555555;
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin: 26px 0 10px 0;
+        padding-left: 10px;
+        border-left: 4px solid #b8860b;
+    }
+
+    h3 span.tip {
+        font-size: 12px;
+        color: #999999;
+        font-weight: normal;
+        margin-left: 8px;
+        border: none;
+    }
+
+    /* ---------- 视频 ---------- */
+    .video-wrap {
+        width: 720px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        padding: 8px;
+    }
+
+    .video-wrap video {
+        display: block;
+        width: 100%;
+        height: auto;
+        background-color: #000000;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+    }
+
+    th, td {
+        border: 1px solid #e5e5e5;
+        padding: 8px 12px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333333;
+    }
+
+    table tr:nth-child(even) td {
+        background-color: #fafafa;
+    }
+
+    table tr:hover td {
+        background-color: #fdf7e6;
+    }
+
+    audio {
+        width: 300px;
+        height: 30px;
+        vertical-align: middle;
+    }
+
+    /* ---------- 照片墙 ---------- */
+    .gallery {
+        overflow: hidden;
+    }
+
+    .gallery a {
+        display: block;
+        float: left;
+        box-sizing: border-box;
+        width: 310px;
+        margin: 0 15px 15px 0;
+        border: 1px solid #e5e5e5;
+        background-color: #ffffff;
+        transition: border-color 0.3s;
+    }
+
+    .gallery a:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .gallery a:hover {
+        border-color: #b8860b;
+    }
+
+    .gallery img {
+        display: block;
+        width: 100%;
+        height: 308px;
+    }
+
+    .credit {
+        font-size: 12px;
+        color: #999999;
+        margin-top: -4px;
+    }
+
+    .credit a {
+        color: #999999;
+        text-decoration: underline;
+    }
+
+    .credit a:hover {
+        color: #b8860b;
+    }
+
+    .gallery p {
+        font-size: 12px;
+        color: #888888;
+        text-align: center;
+        padding: 4px 0 6px 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1><a href="https://www.baidu.com/s?wd=%E5%AD%99%E7%87%95%E5%A7%BF" target="_blank" rel="noopener" title="在百度搜索「孙燕姿」">孙燕姿</a><span class="hint">点击搜索</span></h1>
+    <p>STEFANIE SUN</p>
+</div>
+
+<div class="nav">
+    <a href="../index.html">首页</a>
+    <a href="sunyanzi.html">孙燕姿</a>
+    <a href="zhoujielun.html">周杰伦</a>
+    <a href="linjunjie.html">林俊杰</a>
+    <a href="mayday.html">五月天</a>
+</div>
+
+<div class="box">
+
+    <div class="artist">
+        <img src="../image/yanzi.jpg" alt="孙燕姿">
+        <h2><a href="https://www.baidu.com/s?wd=%E5%AD%99%E7%87%95%E5%A7%BF" target="_blank" rel="noopener" title="在百度搜索「孙燕姿」">孙燕姿</a><span class="hint">点击搜索</span></h2>
+        <p class="tag">新加坡女歌手 · 2000 年出道</p>
+        <p><span class="fav">★ 我最喜欢的歌手</span></p>
+        <p class="desc">孙燕姿，新加坡籍女歌手，2000 年凭首张同名专辑《孙燕姿》正式出道。她的嗓音清澈通透，兼具少女的干净与成熟的力量，出道次年即获得金曲奖最佳新人奖。二十余年来，她以稳定而真诚的演唱风格，成为华语流行乐坛最具代表性的女声之一。她的歌多写成长中的告别、坚持与自我和解，因而被一代听众视为“青春的声音”。</p>
+    </div>
+
+    <h3>照片墙 <span class="tip">共 3 张，点图片看大图</span></h3>
+    <div class="gallery">
+        <a href="../image/yanzi_g4.jpg" target="_blank"><img src="../image/yanzi_g4.jpg" alt="专辑《未完成》（2003）"><p>专辑《未完成》（2003）</p></a>
+        <a href="../image/yanzi_g5.jpg" target="_blank"><img src="../image/yanzi_g5.jpg" alt="专辑《The Moment》（2003）"><p>专辑《The Moment》（2003）</p></a>
+        <a href="../image/yanzi_g7.jpg" target="_blank"><img src="../image/yanzi_g7.jpg" alt="专辑《完美的一天》（2005）"><p>专辑《完美的一天》（2005）</p></a>
+    </div>
+    <p class="credit">照片为本人收集的专辑封面与宣传照，版权归原唱片公司所有，仅用于课程作业展示</p>
+
+    <h3>现场视频 <span class="tip">演唱会现场片段，时长 5 分 16 秒，点播放键观看</span></h3>
+    <div class="video-wrap">
+        <video controls preload="none" poster="../video/yanzi_live.jpg" src="../video/yanzi_live.mp4">
+            你的浏览器不支持视频播放，请升级浏览器后观看。
+        </video>
+    </div>
+    <p class="credit">视频为演唱会现场片段，来源网络（画面右下角带有短视频平台水印），仅用于课程作业展示</p>
+
+    <h3>在线试听 <span class="tip">共 13 首完整歌曲，点播放键即可试听</span></h3>
+    <table>
+        <tr><th>序号</th><th>歌名</th><th>时长</th><th>播放</th></tr>
+        <tr><td style="width:60px;">1</td><td style="width:220px;">《天黑黑》</td><td style="width:80px;">3:56</td><td><audio controls preload="none" src="../audio/tianheihei.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">2</td><td style="width:220px;">《我要的幸福》</td><td style="width:80px;">3:34</td><td><audio controls preload="none" src="../audio/yaobaidexingfu.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">3</td><td style="width:220px;">《超快感》</td><td style="width:80px;">3:40</td><td><audio controls preload="none" src="../audio/chaokuaigan.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">4</td><td style="width:220px;">《绿光》</td><td style="width:80px;">3:14</td><td><audio controls preload="none" src="../audio/lvguang.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">5</td><td style="width:220px;">《开始懂了》</td><td style="width:80px;">4:32</td><td><audio controls preload="none" src="../audio/kaishidongle.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">6</td><td style="width:220px;">《逃亡》</td><td style="width:80px;">4:45</td><td><audio controls preload="none" src="../audio/taowang.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">7</td><td style="width:220px;">《The Moment》</td><td style="width:80px;">4:13</td><td><audio controls preload="none" src="../audio/the_moment.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">8</td><td style="width:220px;">《神奇》</td><td style="width:80px;">4:19</td><td><audio controls preload="none" src="../audio/shenqi.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">9</td><td style="width:220px;">《我不难过》</td><td style="width:80px;">5:20</td><td><audio controls preload="none" src="../audio/wobunanguo.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">10</td><td style="width:220px;">《第一天》</td><td style="width:80px;">4:14</td><td><audio controls preload="none" src="../audio/diyitian.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">11</td><td style="width:220px;">《眼泪成诗》</td><td style="width:80px;">3:39</td><td><audio controls preload="none" src="../audio/yanleichengshi.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">12</td><td style="width:220px;">《我怀念的》</td><td style="width:80px;">4:49</td><td><audio controls preload="none" src="../audio/wohuainiande.mp3"></audio></td></tr>
+        <tr><td style="width:60px;">13</td><td style="width:220px;">《逆光》</td><td style="width:80px;">4:54</td><td><audio controls preload="none" src="../audio/niguang.mp3"></audio></td></tr>
+    </table>
+
+    <h3>代表作</h3>
+    <table>
+        <tr><th style="width:70px;">序号</th><th>歌名</th><th style="width:120px;">发行年份</th></tr>
+        <tr><td>1</td><td>《天黑黑》</td><td>2000 年</td></tr>
+        <tr><td>2</td><td>《遇见》</td><td>2003 年</td></tr>
+        <tr><td>3</td><td>《我怀念的》</td><td>2007 年</td></tr>
+        <tr><td>4</td><td>《开始懂了》</td><td>2002 年</td></tr>
+        <tr><td>5</td><td>《逆光》</td><td>2007 年</td></tr>
+    </table>
+
+    <h3>经典专辑</h3>
+    <table>
+        <tr><th>专辑</th><th style="width:120px;">发行年份</th><th style="width:180px;">备注</th></tr>
+        <tr><td>《孙燕姿》</td><td>2000 年</td><td>同名专辑</td></tr>
+        <tr><td>《我要的幸福》</td><td>2000 年</td><td>第二张专辑</td></tr>
+        <tr><td>《The Moment》</td><td>2003 年</td><td>精选集</td></tr>
+        <tr><td>《逆光》</td><td>2007 年</td><td>第十张专辑</td></tr>
+        <tr><td>《克卜勒》</td><td>2014 年</td><td>回归之作</td></tr>
+    </table>
+
+    <p style="margin-top:22px;"><a href="../index.html">&lt;&lt; 返回首页</a></p>
+
+</div>
+
+<div class="footer">
+    网页课程作业 2026 &nbsp;|&nbsp; 照片来自本人收集，部分封面版权归原唱片公司所有
+</div>
+
+</body>
+</html>
