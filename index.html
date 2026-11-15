@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>华语歌手集锦</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "微软雅黑", Arial, sans-serif;
+        font-size: 14px;
+        color: #333333;
+        line-height: 1.8;
+        background-color: #f6f6f6;
+    }
+
+    a {
+        color: #333333;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #b8860b;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #333333 0%, #4d4d4d 100%);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 0 26px 0;
+        border-bottom: 3px solid #b8860b;
+    }
+
+    .header h1 {
+        font-size: 28px;
+        letter-spacing: 8px;
+        font-weight: bold;
+    }
+
+    .header h1 a {
+        color: #ffffff;
+    }
+
+    .header h1 a:hover {
+        color: #e8c377;
+        text-decoration: underline;
+    }
+
+    .header p {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #bbbbbb;
+        letter-spacing: 4px;
+    }
+
+    .hint {
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: 0;
+        color: #999999;
+        margin-left: 10px;
+    }
+
+    .header h1 .hint {
+        color: #c9a86a;
+    }
+
+    .nav {
+        background-color: #ffffff;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .nav a {
+        display: inline-block;
+        color: #555555;
+        padding: 11px 22px;
+        font-size: 14px;
+    }
+
+    .nav a:hover {
+        color: #b8860b;
+        border-bottom: 2px solid #b8860b;
+        padding-bottom: 9px;
+    }
+
+    .box {
+        width: 960px;
+        margin: 26px auto;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .footer {
+        background-color: #333333;
+        color: #aaaaaa;
+        text-align: center;
+        padding: 16px;
+        font-size: 12px;
+        margin-top: 26px;
+    }
+
+    .footer a {
+        color: #cccccc;
+        text-decoration: underline;
+    }
+
+    .footer a:hover {
+        color: #e8c377;
+    }
+
+    .section-title {
+        font-size: 17px;
+        color: #333333;
+        padding-left: 10px;
+        border-left: 4px solid #b8860b;
+        margin-bottom: 16px;
+    }
+
+    /* ---------- 首页卡片 ---------- */
+    .item {
+        position: relative;
+        float: left;
+        width: 466px;
+        margin: 0 24px 24px 0;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+
+    .item:nth-child(2n+1) {
+        margin-right: 0;
+    }
+
+    .item:hover {
+        border-color: #b8860b;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        transform: translateY(-3px);
+    }
+
+    .item img {
+        display: block;
+        width: 464px;
+        height: 348px;
+    }
+
+    .item .badge {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-color: #b8860b;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 3px 12px;
+        letter-spacing: 1px;
+    }
+
+    .item .info {
+        padding: 12px 16px 16px 16px;
+    }
+
+    .item .info h2 {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .item .info h2 a {
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .item .info h2 a:hover {
+        color: #b8860b;
+        border-bottom-color: #b8860b;
+    }
+
+    .item .info p {
+        color: #666666;
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .item .info p.meta {
+        color: #999999;
+        font-size: 12px;
+    }
+
+    .item .info a.more {
+        color: #b8860b;
+        font-size: 13px;
+    }
+
+    /* ---------- 子页 ---------- */
+    .artist {
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .artist img {
+        float: left;
+        width: 320px;
+        height: 240px;
+        margin-right: 22px;
+    }
+
+    .artist h2 {
+        font-size: 22px;
+        margin-bottom: 2px;
+    }
+
+    .artist h2 a {
+        border-bottom: 1px dashed #cccccc;
+    }
+
+    .artist h2 a:hover {
+        color: #b8860b;
+        border-bottom-color: #b8860b;
+    }
+
+    .artist .tag {
+        color: #b8860b;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .artist .fav {
+        display: inline-block;
+        background-color: #b8860b;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 2px 10px;
+        margin-bottom: 10px;
+    }
+
+    .artist p.desc {
+        color: #555555;
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin: 26px 0 10px 0;
+        padding-left: 10px;
+        border-left: 4px solid #b8860b;
+    }
+
+    h3 span.tip {
+        font-size: 12px;
+        color: #999999;
+        font-weight: normal;
+        margin-left: 8px;
+        border: none;
+    }
+
+    /* ---------- 视频 ---------- */
+    .video-wrap {
+        width: 720px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        padding: 8px;
+    }
+
+    .video-wrap video {
+        display: block;
+        width: 100%;
+        height: auto;
+        background-color: #000000;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+    }
+
+    th, td {
+        border: 1px solid #e5e5e5;
+        padding: 8px 12px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333333;
+    }
+
+    table tr:nth-child(even) td {
+        background-color: #fafafa;
+    }
+
+    table tr:hover td {
+        background-color: #fdf7e6;
+    }
+
+    audio {
+        width: 300px;
+        height: 30px;
+        vertical-align: middle;
+    }
+
+    /* ---------- 照片墙 ---------- */
+    .gallery {
+        overflow: hidden;
+    }
+
+    .gallery a {
+        display: block;
+        float: left;
+        box-sizing: border-box;
+        width: 310px;
+        margin: 0 15px 15px 0;
+        border: 1px solid #e5e5e5;
+        background-color: #ffffff;
+        transition: border-color 0.3s;
+    }
+
+    .gallery a:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .gallery a:hover {
+        border-color: #b8860b;
+    }
+
+    .gallery img {
+        display: block;
+        width: 100%;
+        height: 308px;
+    }
+
+    .credit {
+        font-size: 12px;
+        color: #999999;
+        margin-top: -4px;
+    }
+
+    .credit a {
+        color: #999999;
+        text-decoration: underline;
+    }
+
+    .credit a:hover {
+        color: #b8860b;
+    }
+
+    .gallery p {
+        font-size: 12px;
+        color: #888888;
+        text-align: center;
+        padding: 4px 0 6px 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>华语歌手集锦</h1>
+    <p>四位歌手的小介绍</p>
+</div>
+
+<div class="nav">
+    <a href="index.html">首页</a>
+    <a href="web/sunyanzi.html">孙燕姿</a>
+    <a href="web/zhoujielun.html">周杰伦</a>
+    <a href="web/linjunjie.html">林俊杰</a>
+    <a href="web/mayday.html">五月天</a>
+</div>
+
+<div class="box">
+    <div class="section-title">歌手一览</div>
+
+    <div class="item">
+        <span class="badge">★ 我最喜欢</span>
+        <a href="web/sunyanzi.html"><img src="image/yanzi.jpg" alt="孙燕姿"></a>
+        <div class="info">
+            <h2><a href="https://www.baidu.com/s?wd=%E5%AD%99%E7%87%95%E5%A7%BF" target="_blank" rel="noopener" title="在百度搜索「孙燕姿」">孙燕姿</a></h2>
+            <p>新加坡女歌手 · 2000 年出道</p>
+            <p>清澈而有力的声线，把青春的倔强与温柔一起唱进歌里。</p>
+            <p class="meta">照片 3 张 · 歌曲 13 首 · 视频 1 段</p>
+            <a class="more" href="web/sunyanzi.html">查看主页 &gt;&gt;</a>
+        </div>
+    </div>
+
+    <div class="item">
+        <a href="web/zhoujielun.html"><img src="image/jay.jpg" alt="周杰伦"></a>
+        <div class="info">
+            <h2><a href="https://www.baidu.com/s?wd=%E5%91%A8%E6%9D%B0%E4%BC%A6" target="_blank" rel="noopener" title="在百度搜索「周杰伦」">周杰伦</a></h2>
+            <p>华语创作歌手 · 词曲编唱全能</p>
+            <p>一代人的青春，都被他的旋律写过一遍。</p>
+            <p class="meta">照片 3 张 · 歌曲 8 首</p>
+            <a class="more" href="web/zhoujielun.html">查看主页 &gt;&gt;</a>
+        </div>
+    </div>
+
+    <div class="item">
+        <a href="web/linjunjie.html"><img src="image/jj.jpg" alt="林俊杰"></a>
+        <div class="info">
+            <h2><a href="https://www.baidu.com/s?wd=%E6%9E%97%E4%BF%8A%E6%9D%B0" target="_blank" rel="noopener" title="在百度搜索「林俊杰」">林俊杰</a></h2>
+            <p>新加坡创作男歌手 · 音乐制作人</p>
+            <p>高音干净通透，情歌细腻而有穿透力。</p>
+            <p class="meta">照片 3 张 · 歌曲 8 首</p>
+            <a class="more" href="web/linjunjie.html">查看主页 &gt;&gt;</a>
+        </div>
+    </div>
+
+    <div class="item">
+        <a href="web/mayday.html"><img src="image/mayday.jpg" alt="五月天"></a>
+        <div class="info">
+            <h2><a href="https://www.baidu.com/s?wd=%E4%BA%94%E6%9C%88%E5%A4%A9" target="_blank" rel="noopener" title="在百度搜索「五月天」">五月天</a></h2>
+            <p>中国台湾摇滚乐团 · 阿信、怪兽、石头、玛莎、冠佑</p>
+            <p>用摇滚唱普通人的倔强与不服输。</p>
+            <p class="meta">照片 3 张 · 歌曲 8 首</p>
+            <a class="more" href="web/mayday.html">查看主页 &gt;&gt;</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<div class="footer">
+    网页课程作业 2026 &nbsp;|&nbsp; 照片来自本人收集，部分封面版权归原唱片公司所有
+</div>
+
+</body>
+</html>
